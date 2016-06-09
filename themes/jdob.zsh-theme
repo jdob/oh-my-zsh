@@ -29,8 +29,8 @@ fi
 if [ -z "$COLOR_VENV" ]; then
   COLOR_VENV=%{$PR_BLUE%}
 fi
-if [ -z "$COLOR_OPENSTACK" ]; then
-  COLOR_OPENSTACK=%{$PR_CYAN%}
+if [ -z "$COLOR_EXTRA" ]; then
+  COLOR_EXTRA=%{$PR_CYAN%}
 fi
 if [ -z "$COLOR_RETURN" ]; then
   COLOR_RETURN=%{$PR_LIGHT_RED%}
@@ -56,7 +56,7 @@ local host='%{$PR_NO_COLOR%}%{$COLOR_HOST%}%M%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
 local current_dir='%{$PR_NO_COLOR%}%{$COLOR_CWD%}%~%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
 local git_branch='%{$PR_NO_COLOR%}%{$COLOR_GIT%}$(git_prompt_info)%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
 local venv='%{$PR_NO_COLOR%}%{$COLOR_VENV%}$(virtualenv_info)%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
-local openstack='%{$PR_NO_COLOR%}%{$COLOR_OPENSTACK%}$OPENSTACK_ENV%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
+local extra='%{$PR_NO_COLOR%}%{$COLOR_EXTRA%}$EXTRA_ENV%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
 
 local top_leader='%{$COLOR_BORDER%}╭─'
 local bottom_leader='╰─%{$PR_NO_COLOR%}'
@@ -64,7 +64,7 @@ local bottom_leader='╰─%{$PR_NO_COLOR%}'
 # Assemble the prompts
 # PROMPT="${top_leader}[${user}]─[${host}]─[${current_dir}]─[${git_branch}]─●
 # PROMPT="${top_leader}[${host}]─[${current_dir}]─[${git_branch}]─[${venv}]-[${openstack}]-●
-PROMPT="${top_leader}[${current_dir}]─[${git_branch}]─[${venv}]-[${openstack}]-●
+PROMPT="${top_leader}[${current_dir}]─[${git_branch}]─[${venv}]-[${extra}]-●
 ${bottom_leader}${prompt}%{$PR_NO_COLOR%}"
 RPS1="${return_code}"
 
