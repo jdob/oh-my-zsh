@@ -21,7 +21,7 @@ if [ -z "$COLOR_HOST" ]; then
   COLOR_HOST=%{$PR_LIGHT_MAGENTA%}
 fi
 if [ -z "$COLOR_CWD" ]; then
-  COLOR_CWD=%{$PR_LIGHT_GREEN%}
+  COLOR_CWD=%{$PR_LIGHT_RED%}
 fi
 if [ -z "$COLOR_GIT" ]; then
   COLOR_GIT=%{$PR_YELLOW%}
