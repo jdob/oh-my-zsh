@@ -1,16 +1,16 @@
 # Michele Bologna's theme
-# http://michelebologna.net
+# https://www.michelebologna.net
 #
 # This a theme for oh-my-zsh. Features a colored prompt with:
-# * username@host: [jobs] [git] workdir % 
-# * hostname color is based on hostname characters. When using as root, the 
+# * username@host: [jobs] [git] workdir %
+# * hostname color is based on hostname characters. When using as root, the
 # prompt shows only the hostname in red color.
 # * [jobs], if applicable, counts the number of suspended jobs tty
 # * [git], if applicable, represents the status of your git repo (more on that
 # later)
 # * '%' prompt will be green if last command return value is 0, yellow otherwise.
-# 
-# git prompt is inspired by official git contrib prompt: 
+#
+# git prompt is inspired by official git contrib prompt:
 # https://github.com/git/git/tree/master/contrib/completion/git-prompt.sh
 # and it adds:
 # * the current branch
@@ -59,16 +59,17 @@ ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
 ZSH_THEME_GIT_PROMPT_DIRTY=""
 ZSH_THEME_GIT_PROMPT_CLEAN=""
-ZSH_THEME_GIT_PROMPT_UNTRACKED="%%"
-ZSH_THEME_GIT_PROMPT_MODIFIED="*"
-ZSH_THEME_GIT_PROMPT_ADDED="+"
-ZSH_THEME_GIT_PROMPT_STASHED="$"
-ZSH_THEME_GIT_PROMPT_EQUAL_REMOTE="="
+ZSH_THEME_GIT_PROMPT_UNTRACKED="$blue%%"
+ZSH_THEME_GIT_PROMPT_MODIFIED="$red*"
+ZSH_THEME_GIT_PROMPT_ADDED="$green+"
+ZSH_THEME_GIT_PROMPT_STASHED="$blue$"
+ZSH_THEME_GIT_PROMPT_EQUAL_REMOTE="$green="
 ZSH_THEME_GIT_PROMPT_AHEAD_REMOTE=">"
 ZSH_THEME_GIT_PROMPT_BEHIND_REMOTE="<"
-ZSH_THEME_GIT_PROMPT_DIVERGED_REMOTE="<>"
+ZSH_THEME_GIT_PROMPT_DIVERGED_REMOTE="$red<>"
 
 PROMPT='$username_output$hostname_output:$current_dir_output%1(j. [$jobs_bg].)'
-PROMPT+='$(__git_ps1)'
+GIT_PROMPT='$(out=$(git_prompt_info)$(git_prompt_status)$(git_remote_status);if [[ -n $out ]]; then printf %s " $white($green$out$white)$reset";fi)'
+PROMPT+="$GIT_PROMPT"
 PROMPT+=" $last_command_output%#$reset "
 RPROMPT=''

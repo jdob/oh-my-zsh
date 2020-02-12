@@ -2,6 +2,7 @@ alias be="bundle exec"
 alias bl="bundle list"
 alias bp="bundle package"
 alias bo="bundle open"
+alias bout="bundle outdated"
 alias bu="bundle update"
 alias bi="bundle_install"
 alias bcn="bundle clean"
@@ -13,6 +14,7 @@ bundled_commands=(
   cucumber
   foodcritic
   guard
+  hanami
   irb
   jekyll
   kitchen
@@ -25,6 +27,7 @@ bundled_commands=(
   rainbows
   rake
   rspec
+  rubocop
   shotgun
   sidekiq
   spec
@@ -52,12 +55,16 @@ done
 ## Functions
 
 bundle_install() {
-  if _bundler-installed && _within-bundled-project; then
+  if ! _bundler-installed; then
+    echo "Bundler is not installed"
+  elif ! _within-bundled-project; then
+    echo "Can't 'bundle install' outside a bundled project"
+  else
     local bundler_version=`bundle version | cut -d' ' -f3`
     if [[ $bundler_version > '1.4.0' || $bundler_version = '1.4.0' ]]; then
-      if [[ "$OSTYPE" = darwin* ]]
+      if [[ "$OSTYPE" = (darwin|freebsd)* ]]
       then
-        local cores_num="$(sysctl hw.ncpu | awk '{print $2}')"
+        local cores_num="$(sysctl -n hw.ncpu)"
       else
         local cores_num="$(nproc)"
       fi
@@ -65,8 +72,6 @@ bundle_install() {
     else
       bundle install $@
     fi
-  else
-    echo "Can't 'bundle install' outside a bundled project"
   fi
 }
 
@@ -77,7 +82,7 @@ _bundler-installed() {
 _within-bundled-project() {
   local check_dir="$PWD"
   while [ "$check_dir" != "/" ]; do
-    [ -f "$check_dir/Gemfile" ] && return
+    [ -f "$check_dir/Gemfile" -o -f "$check_dir/gems.rb" ] && return
     check_dir="$(dirname $check_dir)"
   done
   false
@@ -90,7 +95,7 @@ _binstubbed() {
 _run-with-bundler() {
   if _bundler-installed && _within-bundled-project; then
     if _binstubbed $1; then
-      ./bin/$@
+      ./bin/${^^@}
     else
       bundle exec $@
     fi
