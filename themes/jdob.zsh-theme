@@ -63,8 +63,8 @@ local bottom_leader='╰─%{$PR_NO_COLOR%}'
 
 # Assemble the prompts
 # PROMPT="${top_leader}[${user}]─[${host}]─[${current_dir}]─[${git_branch}]─●
-# PROMPT="${top_leader}[${host}]─[${current_dir}]─[${git_branch}]─[${venv}]-[${openstack}]-●
-PROMPT="${top_leader}[${current_dir}]─[${git_branch}]─[${venv}]-[${extra}]-●
+# PROMPT="${top_leader}[${host}]─[${current_dir}]─[${git_branch}]─[${venv}]─●
+PROMPT="${top_leader}[${current_dir}]─[${git_branch}]─[${venv}]─[${extra}]─●
 ${bottom_leader}${prompt}%{$PR_NO_COLOR%}"
 RPS1="${return_code}"
 
