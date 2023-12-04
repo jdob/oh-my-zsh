@@ -48,11 +48,16 @@ function virtualenv_info {
   [ $VIRTUAL_ENV ] && echo `basename $VIRTUAL_ENV`
 }
 
+# Kubernetes Config File
+function kubeconfig {
+  [ $KUBECONFIG ] && echo `basename $KUBECONFIG`
+}
+
 # Pieces to be used in the prompts
 local top_leader='%{$COLOR_BORDER%}╭─'
 local current_dir='%{$PR_NO_COLOR%}%{$COLOR_CWD%}[%~]%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
 local git_branch='%{$PR_NO_COLOR%}%{$COLOR_GIT%}[$(git_prompt_info)%{$COLOR_GIT%}]%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
-local kube='%{$PR_NO_COLOR%}%{$COLOR_VENV%}[$(basename $KUBECONFIG)]%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
+local kube='%{$PR_NO_COLOR%}%{$COLOR_VENV%}[$(kubeconfig)]%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
 local bottom_leader='╰─%{$PR_NO_COLOR%}'
 local prompt='%{$COLOR_BORDER%}➤ %{$PR_NO_COLOR%}'
 local return_code="%(?..%{$COLOR_RETURN%}%? ↵%{$PR_NO_COLOR%})"
