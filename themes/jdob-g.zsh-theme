@@ -10,6 +10,15 @@ for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
 done
 eval PR_NO_COLOR="%{$terminfo[sgr0]%}"
 
+# Custom Colors
+# List color values with either of these:
+#  spectrum_ls
+#  for code in {000..255}; do print -P -- "$code: %F{$code}Color%f"; done
+export PR_PUMPKIN="%F{208}"
+export PR_PURPLE="%F{099}"
+export PR_VIOLET="%F{093}"
+export PR_LIME="%F{118}"
+
 # Set the colors so they can be overridden in .zshrc
 if [ -z "$COLOR_BORDER" ]; then
   COLOR_BORDER=%{$PR_LIGHT_BLUE%}
