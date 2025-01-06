@@ -18,6 +18,8 @@ export PR_PUMPKIN="%F{208}"
 export PR_PURPLE="%F{099}"
 export PR_VIOLET="%F{093}"
 export PR_LIME="%F{118}"
+export PR_SOFT_BLUE="%F{027}"
+export PR_SNOW="%F{038}"
 
 # Set the colors so they can be overridden in .zshrc
 if [ -z "$COLOR_BORDER" ]; then
