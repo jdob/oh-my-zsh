@@ -20,6 +20,8 @@ export PR_VIOLET="%F{093}"
 export PR_LIME="%F{118}"
 export PR_SOFT_BLUE="%F{027}"
 export PR_SNOW="%F{038}"
+export PR_SUSE_DARK="%F{034}"
+export PR_SUSE_LIGHT="%F{040}"
 
 # Set the colors so they can be overridden in .zshrc
 if [ -z "$COLOR_BORDER" ]; then
