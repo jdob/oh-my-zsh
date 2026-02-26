@@ -71,6 +71,7 @@ local top_leader='%{$COLOR_BORDER%}╭─'
 local current_dir='%{$PR_NO_COLOR%}%{$COLOR_CWD%}[%~]%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
 local git_branch='%{$PR_NO_COLOR%}%{$COLOR_GIT%}[$(git_prompt_info)%{$COLOR_GIT%}]%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
 local kube='%{$PR_NO_COLOR%}%{$COLOR_VENV%}[$(kubeconfig)]%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
+local venv='%{$PR_NO_COLOR%}%{$COLOR_VENV%}[$(virtualenv_info)]%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
 local bottom_leader='╰─%{$PR_NO_COLOR%}'
 local prompt='%{$COLOR_BORDER%}➤ %{$PR_NO_COLOR%}'
 local return_code="%(?..%{$COLOR_RETURN%}%? ↵%{$PR_NO_COLOR%})"
@@ -78,14 +79,12 @@ local return_code="%(?..%{$COLOR_RETURN%}%? ↵%{$PR_NO_COLOR%})"
 
 # local user='%{$PR_NO_COLOR%}%{$COLOR_USER%}%n%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
 # local host='%{$PR_NO_COLOR%}%{$COLOR_HOST%}%M%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
-# local venv='%{$PR_NO_COLOR%}%{$COLOR_VENV%}[$(virtualenv_info)]%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
 # local extra='%{$PR_NO_COLOR%}%{$COLOR_EXTRA%}[$EXTRA_ENV]%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
 
 # Assemble the prompts
 # PROMPT="${top_leader}[${user}]─[${host}]─[${current_dir}]─[${git_branch}]─●
 # PROMPT="${top_leader}[${host}]─[${current_dir}]─[${git_branch}]─[${venv}]─●
 # PROMPT="${top_leader}${current_dir}─${git_branch}─${venv}─${extra}─●
-PROMPT="${top_leader}${current_dir}─${git_branch}─${kube}─●
+PROMPT="${top_leader}${current_dir}─${git_branch}─${venv}─●
 ${bottom_leader}${prompt}%{$PR_NO_COLOR%}"
 RPS1="${return_code}"
-
