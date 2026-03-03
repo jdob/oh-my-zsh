@@ -84,6 +84,11 @@ function virtualenv_info {
   [ $VIRTUAL_ENV ] && echo `basename $VIRTUAL_ENV`
 }
 
+# Node.js Version
+function nodejs_info {
+  [ $NVM_BIN ] && echo "$NVM_BIN" | awk -F'/' '{print $(NF-1)}'
+}
+
 # Kubernetes Config File
 function kubeconfig {
   [ $KUBECONFIG ] && echo `basename $KUBECONFIG`
