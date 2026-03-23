@@ -24,6 +24,9 @@ export PR_SUSE_DARK="%F{034}"
 export PR_SUSE_LIGHT="%F{040}"
 export PR_MISTS="%F{048}"
 export PR_PETALS="%F{213}"
+export PR_LEMON="%F{227}"
+export PR_RICH_PURPLE="%F{129}"
+export PR_RICH_GREEN="%F{082}"
 
 # Themes
 function omz-warlock {
@@ -44,6 +47,13 @@ function omz-monk {
   export COLOR_VENV=$C_TEXT
   export COLOR_CWD=$C_TEXT
   export COLOR_GIT=$C_TEXT
+}
+
+function omz-mardi-gras {
+  export COLOR_BORDER=%{$PR_RICH_PURPLE%}
+  export COLOR_CWD=%{$PR_RICH_GREEN%}
+  export COLOR_GIT=%{$PR_LEMON%}
+  export COLOR_VENV=%{$PR_RICH_GREEN%}
 }
 
 # Set the colors so they can be overridden in .zshrc
