@@ -27,6 +27,7 @@ export PR_PETALS="%F{213}"
 export PR_LEMON="%F{227}"
 export PR_RICH_PURPLE="%F{129}"
 export PR_RICH_GREEN="%F{082}"
+export PR_ROSE="%F{198}"
 
 # Themes
 function omz-warlock {
@@ -53,7 +54,7 @@ function omz-mardi-gras {
   export COLOR_BORDER=%{$PR_RICH_PURPLE%}
   export COLOR_CWD=%{$PR_RICH_GREEN%}
   export COLOR_GIT=%{$PR_LEMON%}
-  export COLOR_VENV=%{$PR_RICH_GREEN%}
+  export COLOR_VENV=%{$PR_ROSE%}
 }
 
 # Set the colors so they can be overridden in .zshrc
