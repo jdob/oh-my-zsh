@@ -66,6 +66,13 @@ function omz-mushroom {
   export COLOR_VENV=%{$PR_BRIGHT_WHITE%}
 }
 
+function omz-bowser {
+  export COLOR_BORDER="%F{220}"
+  export COLOR_CWD="%F{040}"
+  export COLOR_GIT=%{$COLOR_CWD%}
+  export COLOR_VENV="%F{009}"
+}
+
 # Set the colors so they can be overridden in .zshrc
 if [ -z "$COLOR_BORDER" ]; then
   COLOR_BORDER=%{$PR_LIGHT_BLUE%}
