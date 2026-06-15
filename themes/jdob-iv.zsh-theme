@@ -40,6 +40,7 @@ function omz-warlock {
   export COLOR_VENV=$C_TEXT
   export COLOR_CWD=$C_TEXT
   export COLOR_GIT=$C_TEXT
+  export COLOR_EXTRA=$C_TEXT
 }
 
 function omz-monk {
@@ -50,6 +51,7 @@ function omz-monk {
   export COLOR_VENV=$C_TEXT
   export COLOR_CWD=$C_TEXT
   export COLOR_GIT=$C_TEXT
+  export COLOR_EXTRA=$C_TEXT
 }
 
 function omz-mardi-gras {
@@ -57,6 +59,7 @@ function omz-mardi-gras {
   export COLOR_CWD=%{$PR_RICH_GREEN%}
   export COLOR_GIT=%{$PR_LEMON%}
   export COLOR_VENV=%{$PR_ROSE%}
+  export COLOR_EXTRA=%{$PR_RICH_GREEN%}
 }
 
 function omz-mushroom {
@@ -64,6 +67,7 @@ function omz-mushroom {
   export COLOR_CWD=%{$PR_BRIGHT_WHITE%}
   export COLOR_GIT=%{$PR_BRIGHT_WHITE%}
   export COLOR_VENV=%{$PR_BRIGHT_WHITE%}
+  export COLOR_EXTRA=%{$PR_BRIGHT_WHITE%}
 }
 
 function omz-bowser {
@@ -71,6 +75,19 @@ function omz-bowser {
   export COLOR_CWD="%F{040}"
   export COLOR_GIT=%{$COLOR_CWD%}
   export COLOR_VENV="%F{009}"
+  export COLOR_EXTRA=%{$COLOR_CWD%}
+}
+
+function omz-knicks {
+  C_BORDER="%F{033}"  
+  C_TEXT="%F{208}"
+
+  export COLOR_BORDER=$C_BORDER
+  export COLOR_VENV=$C_TEXT
+  export COLOR_CWD=$C_TEXT
+  export COLOR_GIT=$C_TEXT
+  export COLOR_EXTRA=$C_TEXT
+
 }
 
 # Set the colors so they can be overridden in .zshrc
@@ -127,6 +144,7 @@ local current_dir='%{$PR_NO_COLOR%}%{$COLOR_CWD%}[%~]%{$PR_NO_COLOR%}%{$COLOR_BO
 local git_branch='%{$PR_NO_COLOR%}%{$COLOR_GIT%}[$(git_prompt_info)%{$COLOR_GIT%}]%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
 local kube='%{$PR_NO_COLOR%}%{$COLOR_VENV%}[$(kubeconfig)]%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
 local venv='%{$PR_NO_COLOR%}%{$COLOR_VENV%}[$(virtualenv_info)]%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
+local extra='%{$PR_NO_COLOR%}%{$COLOR_EXTRA%}[$EXTRA_ENV]%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
 local bottom_leader='╰─%{$PR_NO_COLOR%}'
 local prompt='%{$COLOR_BORDER%}➤ %{$PR_NO_COLOR%}'
 local return_code="%(?..%{$COLOR_RETURN%}%? ↵%{$PR_NO_COLOR%})"
@@ -134,12 +152,13 @@ local return_code="%(?..%{$COLOR_RETURN%}%? ↵%{$PR_NO_COLOR%})"
 
 # local user='%{$PR_NO_COLOR%}%{$COLOR_USER%}%n%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
 # local host='%{$PR_NO_COLOR%}%{$COLOR_HOST%}%M%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
-# local extra='%{$PR_NO_COLOR%}%{$COLOR_EXTRA%}[$EXTRA_ENV]%{$PR_NO_COLOR%}%{$COLOR_BORDER%}'
 
 # Assemble the prompts
 # PROMPT="${top_leader}[${user}]─[${host}]─[${current_dir}]─[${git_branch}]─●
 # PROMPT="${top_leader}[${host}]─[${current_dir}]─[${git_branch}]─[${venv}]─●
-# PROMPT="${top_leader}${current_dir}─${git_branch}─${venv}─${extra}─●
-PROMPT="${top_leader}${current_dir}─${git_branch}─${venv}─●
+# PROMPT="${top_leader}${current_dir}─${git_branch}─${venv}─●
+
+PROMPT="${top_leader}${host}─${current_dir}─${git_branch}─${venv}─${extra}─●
 ${bottom_leader}${prompt}%{$PR_NO_COLOR%}"
+
 RPS1="${return_code}"
