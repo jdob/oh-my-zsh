@@ -87,7 +87,17 @@ function omz-knicks {
   export COLOR_CWD=$C_TEXT
   export COLOR_GIT=$C_TEXT
   export COLOR_EXTRA=$C_TEXT
+}
 
+function omz-seaside {
+  C_BORDER="%F{215}"  
+  C_TEXT="%F{043}"
+
+  export COLOR_BORDER=$C_BORDER
+  export COLOR_VENV=$C_TEXT
+  export COLOR_CWD=$C_TEXT
+  export COLOR_GIT=$C_TEXT
+  export COLOR_EXTRA=$C_TEXT
 }
 
 # Set the colors so they can be overridden in .zshrc
