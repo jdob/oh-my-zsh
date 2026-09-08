@@ -111,6 +111,17 @@ function omz-splatoon {
   export COLOR_EXTRA=$C_TEXT
 }
 
+function omz-halloween {
+  C_BORDER="%F{099q}"  
+  C_TEXT="%F{214}"
+
+  export COLOR_BORDER=$C_BORDER
+  export COLOR_VENV=$C_TEXT
+  export COLOR_CWD=$C_TEXT
+  export COLOR_GIT=$C_TEXT
+  export COLOR_EXTRA=$C_TEXT
+}
+
 
 # Set the colors so they can be overridden in .zshrc
 if [ -z "$COLOR_BORDER" ]; then
